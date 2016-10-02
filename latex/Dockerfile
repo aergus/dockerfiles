@@ -9,5 +9,5 @@ RUN apt-get update && apt-get install -y \
   # but it only adds some overhead while building the image.
   apt-get --purge remove -y .\*-doc$ && \
   # Remove more unnecessary stuff
-  apt-get clean
+  apt-get clean -y
 
