@@ -1,5 +1,11 @@
 FROM debian:testing
 
+ARG USERNAME=latex
+ARG USERHOME=/home/latex
+ARG ID=1000
+
+RUN adduser --home "$USERHOME" --uid $ID --gecos "LaTeX" --disabled-password "$USERNAME"
+
 RUN apt-get update && apt-get install -y \
   wget \
   git \
@@ -10,4 +16,3 @@ RUN apt-get update && apt-get install -y \
   apt-get --purge remove -y .\*-doc$ && \
   # Remove more unnecessary stuff
   apt-get clean -y
-
