@@ -5,9 +5,7 @@ RUN apt-get update && apt-get install -y \
   git \
   make \
   texlive-full \ 
-  texlive-latex-extra \
-  python \
-  python-pip \
+  # Required for syntax highlighting using minted.
   python-pygments && \
   # Removing documentation packages *after* installing them is kind of hacky,
   # but it only adds some overhead while building the image.
