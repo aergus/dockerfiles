@@ -10,7 +10,9 @@ RUN apt-get update && apt-get install -y \
   wget \
   git \
   make \
-  texlive-full \ 
+  texlive-full \
+  # markup format conversion tool
+  pandoc \
   # Required for syntax highlighting using minted.
   python-pygments && \
   # Removing documentation packages *after* installing them is kind of hacky,
