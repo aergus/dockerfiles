@@ -17,6 +17,7 @@ ARG GIT=git
 ARG MAKE=make
 ARG PANDOC=pandoc
 ARG PYGMENTS=python-pygments
+ARG FIG2DEV=fig2dev
 
 RUN apt-get update && apt-get install -y \
   texlive-full \
@@ -26,6 +27,8 @@ RUN apt-get update && apt-get install -y \
   "$MAKE" \
   # markup format conversion tool
   "$PANDOC" \
+  # XFig utilities
+  "$FIG2DEV" \
   # Required for syntax highlighting using minted.
   "$PYGMENTS" && \
   # Removing documentation packages *after* installing them is kind of hacky,
