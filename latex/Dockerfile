@@ -1,16 +1,16 @@
 FROM debian:testing
 
-ARG USERNAME=latex
-ARG USERHOME=/home/latex
-ARG USERID=1000
-ARG USERGECOS=LaTEX
+ARG USER_NAME=latex
+ARG USER_HOME=/home/latex
+ARG USER_ID=1000
+ARG USER_GECOS=LaTeX
 
 RUN adduser \
-  --home "$USERHOME" \
-  --uid $USERID \
-  --gecos "$USERGECOS" \
+  --home "$USER_HOME" \
+  --uid $USER_ID \
+  --gecos "$USER_GECOS" \
   --disabled-password \
-  "$USERNAME"
+  "$USER_NAME"
 
 ARG WGET=wget
 ARG GIT=git
@@ -29,7 +29,7 @@ RUN apt-get update && apt-get install -y \
   "$PANDOC" \
   # XFig utilities
   "$FIG2DEV" \
-  # Required for syntax highlighting using minted.
+  # syntax highlighting package
   "$PYGMENTS" && \
   # Removing documentation packages *after* installing them is kind of hacky,
   # but it only adds some overhead while building the image.
