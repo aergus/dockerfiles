@@ -16,7 +16,7 @@ ARG WGET=wget
 ARG GIT=git
 ARG MAKE=make
 ARG PANDOC=pandoc
-ARG PYGMENTS=python-pygments
+ARG PYGMENTS=python3-pygments
 ARG FIG2DEV=fig2dev
 
 RUN apt-get update && apt-get install -y \
