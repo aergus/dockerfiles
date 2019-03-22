@@ -15,7 +15,7 @@ RUN adduser \
 ARG WGET=wget
 ARG GIT=git
 ARG MAKE=make
-ARG PANDOC=pandoc
+ARG PANDOC="pandoc pandoc-citeproc"
 ARG PYGMENTS=python3-pygments
 ARG FIG2DEV=fig2dev
 
