@@ -15,7 +15,8 @@ RUN adduser \
 ARG WGET=wget
 ARG GIT=git
 ARG MAKE=make
-ARG PANDOC="pandoc pandoc-citeproc"
+ARG PANDOC=pandoc
+ARG PCITEPROC=pandoc-citeproc
 ARG PYGMENTS=python3-pygments
 ARG FIG2DEV=fig2dev
 
@@ -27,6 +28,7 @@ RUN apt-get update && apt-get install -y \
   "$MAKE" \
   # markup format conversion tool
   "$PANDOC" \
+  "$PCITEPROC" \
   # XFig utilities
   "$FIG2DEV" \
   # syntax highlighting package
