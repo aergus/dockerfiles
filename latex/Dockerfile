@@ -18,6 +18,9 @@ ARG MAKE=make
 ARG PANDOC=pandoc
 ARG PCITEPROC=pandoc-citeproc
 ARG PYGMENTS=python3-pygments
+ARG MATPLOTLIB=python3-matplotlib
+ARG SCIPY=python3-scipy
+ARG SYMPY=python3-sympy
 ARG FIG2DEV=fig2dev
 ARG JRE=default-jre-headless
 
@@ -34,6 +37,10 @@ RUN apt-get update && apt-get install -y \
   "$FIG2DEV" \
   # syntax highlighting package
   "$PYGMENTS" \
+  # scientific packages for pythontex usage
+  "$MATPLOTLIB" \
+  "$SCIPY" \
+  "$SYMPY" \
   # Java runtime environment (e.g. for arara)
   "$JRE" && \
   # Removing documentation packages *after* installing them is kind of hacky,
