@@ -14,6 +14,7 @@ RUN adduser \
 
 ARG WGET=wget
 ARG GIT=git
+ARG SSH=ssh
 ARG MAKE=make
 ARG PANDOC=pandoc
 ARG PCITEPROC=pandoc-citeproc
@@ -26,6 +27,7 @@ RUN apt-get update && apt-get install -y \
   # some auxiliary tools
   "$WGET" \
   "$GIT" \
+  "$SSH" \
   "$MAKE" \
   # markup format conversion tool
   "$PANDOC" \
