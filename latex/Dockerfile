@@ -14,7 +14,7 @@ RUN adduser \
 
 ARG WGET=wget
 ARG GIT=git
-ARG SSH=ssh
+ARG SSH=openssh-client
 ARG MAKE=make
 ARG PANDOC=pandoc
 ARG PCITEPROC=pandoc-citeproc
