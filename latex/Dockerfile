@@ -19,6 +19,7 @@ ARG MAKE=make
 ARG PANDOC=pandoc
 ARG PCITEPROC=pandoc-citeproc
 ARG PYGMENTS=python3-pygments
+ARG PYTHONIS=python-is-python3
 ARG FIG2DEV=fig2dev
 ARG JRE=default-jre-headless
 
@@ -36,6 +37,8 @@ RUN apt-get update && apt-get install -y \
   "$FIG2DEV" \
   # syntax highlighting package
   "$PYGMENTS" \
+  # temporary fix for minted, see https://github.com/gpoore/minted/issues/277
+  "$PYTHONIS" \
   # Java runtime environment (e.g. for arara)
   "$JRE" && \
   # Removing documentation packages *after* installing them is kind of hacky,
