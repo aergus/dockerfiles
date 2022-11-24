@@ -17,7 +17,6 @@ ARG GIT=git
 ARG SSH=openssh-client
 ARG MAKE=make
 ARG PANDOC=pandoc
-ARG PCITEPROC=pandoc-citeproc
 ARG PYGMENTS=python3-pygments
 ARG PYTHONIS=python-is-python3
 ARG FIG2DEV=fig2dev
@@ -32,7 +31,6 @@ RUN apt-get update && apt-get install -y \
   "$MAKE" \
   # markup format conversion tool
   "$PANDOC" \
-  "$PCITEPROC" \
   # XFig utilities
   "$FIG2DEV" \
   # syntax highlighting package
