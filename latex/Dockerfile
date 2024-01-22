@@ -14,6 +14,7 @@ ARG PYGMENTS=python3-pygments
 ARG PYTHONIS=python-is-python3
 ARG FIG2DEV=fig2dev
 ARG JRE=default-jre-headless
+ARG INKSCAPE=inkscape
 
 RUN apt-get update && apt-get install -y \
   texlive-full \
@@ -24,6 +25,8 @@ RUN apt-get update && apt-get install -y \
   "$MAKE" \
   # markup format conversion tool
   "$PANDOC" \
+  # inkscape for svg
+  "$INKSCAPE" \
   # XFig utilities
   "$FIG2DEV" \
   # syntax highlighting package
