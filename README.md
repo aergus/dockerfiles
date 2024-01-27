@@ -1,11 +1,3 @@
-# dockerfiles
+# docker latex
 
-Here are some Dockerfiles.
-
-Since Docker Hub does not have GitLab integration (as of the writing of this
-file), this repository is hosted both [on GitLab][gl] and [on GitHub][gh].
-
-
-[gl]: https://gitlab.com/aergus/dockerfiles
-[gh]: https://github.com/aergus/dockerfiles
-
+A docker image for compiling latex documents. Includes inkscape. Build for x86_64 and armv8. Should be self maintaining and self updating every first day of the month.

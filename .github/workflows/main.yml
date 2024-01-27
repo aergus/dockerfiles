@@ -1,0 +1,57 @@
+name: Build
+
+on:
+  pull_request:
+  workflow_dispatch:
+  # push:
+  #   branches: [main]
+  #   tags:
+  #     - "*"
+  schedule:
+    - cron: "0 0 1 * *"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v4
+        env:
+          DOCKER_METADATA_PR_HEAD_SHA: true
+        with:
+          images: |
+            fidoriel/latex-docker
+          tags: |
+            type=sha,format=short
+            type=semver,pattern={{raw}}
+            type=raw,value=latest
+            type=raw,value=${{ steps.date.outputs.date }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ci.Dockerfile
+          push: true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          tags: ${{ steps.meta.outputs.tags }}
+          platforms: linux/amd64,linux/arm64/v8
